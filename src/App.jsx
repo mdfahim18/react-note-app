@@ -12,17 +12,9 @@ const getLocalStorage = () => {
   }
 };
 
-const getThemeStorage = () => {
-  let theme = localStorage.getItem('theme');
-  if (theme) {
-    return (theme = JSON.parse(localStorage.getItem('theme')));
-  } else {
-    return;
-  }
-};
 const App = () => {
   const [searchText, setSearchText] = useState('');
-  const [darkMode, setDarkMode] = useState(getThemeStorage(false));
+  const [darkMode, setDarkMode] = useState(false);
   const [notes, setNotes] = useState(getLocalStorage());
 
   const handleAddNote = (text) => {
@@ -45,8 +37,7 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
-    localStorage.setItem('theme', JSON.stringify(darkMode));
-  }, [notes, darkMode]);
+  }, [notes]);
   return (
     <div className={`${darkMode && 'dark-mode'}`}>
       <div className='container'>
@@ -65,21 +56,3 @@ const App = () => {
 };
 
 export default App;
-
-// [
-//   {
-//     id: 1,
-//     text: 'This is my first note',
-//     date: '9/19/2023',
-//   },
-//   {
-//     id: 2,
-//     text: 'This is my second note',
-//     date: '9/20/2023',
-//   },
-//   {
-//     id: 3,
-//     text: 'This is my third note',
-//     date: '9/23/2023',
-//   },
-// ]
