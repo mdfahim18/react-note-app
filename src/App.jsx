@@ -16,6 +16,8 @@ const getThemeStorage = () => {
   let theme = localStorage.getItem('theme');
   if (theme) {
     return (theme = JSON.parse(localStorage.getItem('theme')));
+  } else {
+    return;
   }
 };
 const App = () => {
