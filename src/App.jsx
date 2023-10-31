@@ -48,7 +48,7 @@ const App = () => {
     localStorage.setItem('theme', JSON.stringify(darkMode));
   }, [notes, darkMode]);
   return (
-    <div className={`theme ${darkMode && 'dark-mode'}`}>
+    <div className={`${darkMode && 'dark-mode'}`}>
       <div className='container'>
         <Header handleDarkToggleMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} />
