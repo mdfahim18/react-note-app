@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.theme {
+  transition: all 0.3s linear;
+}
 .container {
   max-width: 960px;
   margin: 0 auto;

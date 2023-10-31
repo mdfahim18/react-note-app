@@ -12,9 +12,15 @@ const getLocalStorage = () => {
   }
 };
 
+const getThemeStorage = () => {
+  let theme = localStorage.getItem('theme');
+  if (theme) {
+    return (theme = JSON.parse(localStorage.getItem('theme')));
+  }
+};
 const App = () => {
   const [searchText, setSearchText] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(getThemeStorage(false));
   const [notes, setNotes] = useState(getLocalStorage());
 
   const handleAddNote = (text) => {
@@ -37,9 +43,10 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
-  }, [notes]);
+    localStorage.setItem('theme', JSON.stringify(darkMode));
+  }, [notes, darkMode]);
   return (
-    <div className={`${darkMode && 'dark-mode'}`}>
+    <div className={`theme ${darkMode && 'dark-mode'}`}>
       <div className='container'>
         <Header handleDarkToggleMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} />
