@@ -7,3 +7,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
   (Fix)[https://dev.to/dance2die/page-not-found-on-netlify-with-react-router-58mc]
+
+## Live site
+
+https://my-react-note-app-1.netlify.app
